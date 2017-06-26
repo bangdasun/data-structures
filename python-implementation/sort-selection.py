@@ -13,6 +13,7 @@ def selectionSort(lst):
     The algorithm makes sure that the element before minloc is sorted,
     the algorithm will search the MINIMUM value at unsorted part (use loop and compare one by one, it's a 'greedy idea')
     
+    Not suitable for large data set since the average and worst case are all O(n^2)
     """
     # set basic parameters
     lstsize = len(lst)
