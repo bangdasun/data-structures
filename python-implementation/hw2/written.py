@@ -107,6 +107,7 @@ def main():
 
 """
 Written 3
+note: some error handling need to be added.
 """
 
 class myStack(object):
