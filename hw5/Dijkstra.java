@@ -108,7 +108,7 @@ public class Dijkstra {
    */
   public double computeEuclideanDistance(double ux, double uy, double vx, double vy) {
         // TODO
-	  return Math.sqrt(Math.pow((ux - vx), 2)  + Math.pow((uy - vy), 2));
+    return Math.sqrt(Math.pow((ux - vx), 2)  + Math.pow((uy - vy), 2));
   }
 
   /**
@@ -117,12 +117,12 @@ public class Dijkstra {
    */
   public void computeAllEuclideanDistances() {
       // TODO
-	  for (String name: vertexNames.keySet()){
-		  for (Edge e: vertexNames.get(name).adjacentEdges){
-			  // Update the distance with euclidean distance
-			  e.distance = computeEuclideanDistance(e.source.x, e.source.y, e.target.x, e.target.y);
-		  }
-	  }
+    for (String name: vertexNames.keySet()){
+      for (Edge e: vertexNames.get(name).adjacentEdges){
+        // Update the distance with euclidean distance
+        e.distance = computeEuclideanDistance(e.source.x, e.source.y, e.target.x, e.target.y);
+      }
+    }
   }
 
   /**
@@ -135,43 +135,43 @@ public class Dijkstra {
 	  
         // TODO 
 	  
-	  // Store the unknown vertices
-	  LinkedList<Vertex> vertexTable = new LinkedList<>();
-	  for (String name: vertexNames.keySet()){
-		  vertexTable.add((vertexNames.get(name)));
-	  }
+    // Store the unknown vertices
+    LinkedList<Vertex> vertexTable = new LinkedList<>();
+    for (String name: vertexNames.keySet()){
+      vertexTable.add((vertexNames.get(name)));
+    }
 	  
-	  // Initialize every vertex
-	  for (String name: vertexNames.keySet()){
-		  vertexNames.get(name).distance = Double.POSITIVE_INFINITY;
-		  vertexNames.get(name).known = false;
-	  }
+    // Initialize every vertex
+    for (String name: vertexNames.keySet()){
+      vertexNames.get(name).distance = Double.POSITIVE_INFINITY;
+      vertexNames.get(name).known = false;
+    }
 	  
-	  vertexNames.get(s).distance = 0;
+    vertexNames.get(s).distance = 0;
 	  
-	  while (!vertexTable.isEmpty()){
+    while (!vertexTable.isEmpty()){
 		  
-		  // Scan vertexTable to find the vertex with minimum distance
-		  Vertex minv = vertexTable.getFirst();
-		  for (Vertex v: vertexTable){
-			  if (v.distance < minv.distance){
-				  minv = v;
-			  }
-		  }
+      // Scan vertexTable to find the vertex with minimum distance
+      Vertex minv = vertexTable.getFirst();
+      for (Vertex v: vertexTable){
+        if (v.distance < minv.distance){
+          minv = v;
+        }
+      }
 		  
-		  minv.known = true;
-		  vertexTable.remove(minv);
+      minv.known = true;
+      vertexTable.remove(minv);
 		  
-		  for (Edge e: minv.adjacentEdges){
-			  if (!e.target.known){
-				  double cvw = e.distance;
-				  if (minv.distance + cvw < e.target.distance){
-					  e.target.distance = minv.distance + cvw;
-					  e.target.prev = minv;
-				  }
-			  }
-		  }
-	  }
+      for (Edge e: minv.adjacentEdges){
+        if (!e.target.known){
+          double cvw = e.distance;
+          if (minv.distance + cvw < e.target.distance){
+            e.target.distance = minv.distance + cvw;
+            e.target.prev = minv;
+          }
+        }
+      }
+    }
 	  
   }
 
@@ -187,18 +187,18 @@ public class Dijkstra {
    */
   public List<Edge> getDijkstraPath(String s, String t) {
     
-	doDijkstra(s);
+    doDijkstra(s);
     
-	// Create a list to store path
+    // Create a list to store path
     List<Edge> pathList = new LinkedList<>();
     Vertex curr = vertexNames.get(t);
     while (curr.prev != null){
     	
-    	Edge newEdge = new Edge(curr, curr.prev, 
+      Edge newEdge = new Edge(curr, curr.prev, 
     			computeEuclideanDistance(curr.x, curr.y, curr.prev.x, curr.prev.y));
-    	pathList.add(newEdge);
-    	// Move towards the start
-    	curr = curr.prev;
+      pathList.add(newEdge);
+      // Move towards the start
+      curr = curr.prev;
     }
     
     // TODO
@@ -287,5 +287,4 @@ public class Dijkstra {
     System.out.print("Shortest path between "+startCity+" and "+endCity+": ");
     System.out.println(path);
   }
-
 }
