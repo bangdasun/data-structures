@@ -3,46 +3,46 @@ I took COMS W3134 Data Structures in Java in 17 spring semester, which is a requ
 
 The topics dicussed in this course includes:
 
-#### General Concepts
+### General Concepts
 Abstract Data types; 
 Basic proofs by induction;
 Recursion.
 
-#### Basic Java Concepts
+### Basic Java Concepts
 Java OOP;
 Generic programming;
 Inner classes;
 Iterator;
 Comparable.
 
-#### Analysis of Algorithms
+### Analysis of Algorithms
 Big-O notation;
 Growth of functions.
 
-#### List
+### List
 ArrayList;
 LinkedList.
 
-#### Stacks and Queues
+### Stacks and Queues
 
-#### Trees
+### Trees
 Binary Tree;
 Binary Search Tree;
 AVL Tree.
 
-#### Hash Table
+### Hash Table
 
-#### Priority Queues
+### Priority Queues
 Binary Heap.
 
-#### Sorting Algorithms
+### Sorting Algorithms
 Selection Sort;
 Insertion Sort;
 Heap Sort;
 Merge Sort;
 Quick Sort.
 
-#### Graphs
+### Graphs
 Graph theory;
 Shorest paths and Dijsktra's Algorithm;
 Minimum Spanning Tree - Prim's Algorithm and Kruskal Algorithm;
